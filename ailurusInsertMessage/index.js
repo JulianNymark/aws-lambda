@@ -4,16 +4,21 @@ const MongoClient = require("mongodb").MongoClient;
 let client;
 
 exports.handler = async (event, context, callback) => {
-  // const uri = process.env["DB_URL"];
-  // client = new MongoClient(uri);
-
-  // await addMessage('anon', '', 'Hello');
-
-  // await client.close();
-
-  return {
-    event: JSON.parse(event.body)
+  if (!event) {
+    return;
   }
+  console.log('### START')
+  const { name = '', email = '', message = '' } = await JSON.parse(event.body);
+  console.log('### ', name, email, message)
+
+  const uri = process.env["DB_URL"];
+  client = new MongoClient(uri);
+
+
+  const result = await addMessage(name, email, message);
+  client.close(); // be nice to the db
+
+  return result;
 };
 
 const addMessage = async (name, email, message) => {
