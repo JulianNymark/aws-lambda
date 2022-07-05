@@ -1,0 +1,14 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "list-functions": "aws lambda list-functions | jq '.Functions[].FunctionName'",
+    "fetch": "curl $(aws lambda get-function --function-name ${npm_config_name} | jq --raw-output '.Code.Location') -o ${npm_config_name}.zip && unzip -d ${npm_config_name}/ ${npm_config_name}.zip",
+    "update": "(cd ${npm_config_name} && zip -r ../${npm_config_name}.zip .) && aws lambda update-function-code --function-name ${npm_config_name} --zip-file fileb://${npm_config_name}.zip | cat"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
