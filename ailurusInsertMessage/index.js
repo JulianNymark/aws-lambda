@@ -4,12 +4,7 @@ const MongoClient = require("mongodb").MongoClient;
 let client;
 
 exports.handler = async (event, context, callback) => {
-  if (!event) {
-    return;
-  }
-  console.log('### START')
   const { name = '', email = '', message = '' } = await JSON.parse(event.body);
-  console.log('### ', name, email, message)
 
   const uri = process.env["DB_URL"];
   client = new MongoClient(uri);
@@ -67,5 +62,3 @@ const getMessages = async () => {
     };
   }
 }
-
-console.log(exports.handler());
