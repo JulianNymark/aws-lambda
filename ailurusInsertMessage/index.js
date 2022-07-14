@@ -4,13 +4,16 @@ const MongoClient = require("mongodb").MongoClient;
 let client;
 
 exports.handler = async (event, context, callback) => {
-  const { name = '', email = '', message = '' } = await JSON.parse(event.body);
+  const { name = "", email = "", message = "" } = await JSON.parse(event.body);
 
   const uri = process.env["DB_URL"];
   client = new MongoClient(uri);
 
-
-  const result = await addMessage(name, email, message);
+  let result = await addMessage(
+    name.substr(0, 200),
+    email.substr(0, 200),
+    message.substr(0, 2000)
+  );
   client.close(); // be nice to the db
 
   return result;
@@ -25,7 +28,7 @@ const addMessage = async (name, email, message) => {
       .insertOne({
         name,
         email,
-        message
+        message,
       });
     console.log(messages);
     return {
@@ -39,7 +42,7 @@ const addMessage = async (name, email, message) => {
       statusCode: 400,
     };
   }
-}
+};
 
 const getMessages = async () => {
   try {
@@ -61,4 +64,4 @@ const getMessages = async () => {
       statusCode: 400,
     };
   }
-}
+};
