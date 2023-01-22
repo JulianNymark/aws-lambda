@@ -15,7 +15,14 @@ npm run start
 
 ## deploy to lambda
 
-`npm run update --name=bicycleAPI`
+`npm run update --name=functionName`
+
+
+## helper functions
+
+- `npm run list-functions`
+- `npm run fetch --name=functionName`
+- `npm run update --name=functionName`
 
 
 ---
