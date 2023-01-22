@@ -10,10 +10,27 @@ const app = new Koa()
 const router = new Router()
 
 router
-  .get("/api/info", (ctx) => {
-    ctx.body = { application: "bicycleAPI", version: "1" }
+  .get("/api/v1/", (ctx) => {
+    ctx.body = {
+      application: 'bicycleAPI',
+      resources: [
+        {
+          url: "https://tsrvwopboogczyvb3tjewfq3ga0lltpz.lambda-url.eu-central-1.on.aws/api/v1/station",
+          description: "get all stations",
+        },
+        {
+          url: "https://tsrvwopboogczyvb3tjewfq3ga0lltpz.lambda-url.eu-central-1.on.aws/api/v1/station/:station_id",
+          description: "get single station",
+        },
+        {
+          url: "https://tsrvwopboogczyvb3tjewfq3ga0lltpz.lambda-url.eu-central-1.on.aws/api/v1/station/nearby/:location/:radius",
+          description:
+            "get all stations within :radius meters of :location (spatial)",
+        },
+      ],
+    }
   })
-  .get("/api/v1/getback", (ctx) => {
+  .get("/api/v1/bounce-request", (ctx) => {
     const requestBody = ctx.request
     ctx.body = requestBody
   })
