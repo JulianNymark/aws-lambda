@@ -1,8 +1,14 @@
-# AWS Lambda made simple!
-
 <p align='center'>
   <img align='center' src="./README/aws_lambda.webp">
 </p>
+
+# AWS Lambda made simple!
+
+# Hosted functions / DEMO
+
+| Function | URL |
+| --- | --- |
+| bicycleAPI | https://tsrvwopboogczyvb3tjewfq3ga0lltpz.lambda-url.eu-central-1.on.aws/api/v1 |
 
 # How to run
 
