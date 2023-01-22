@@ -6,6 +6,19 @@
 
 # How to run
 
+## prerequisites
+
+The scripts in the root `package.json` interact with AWS lambda (deploy, fetch... ). For these to work you must have a working `aws` cli setup (run `aws configure`).
+
+The scripts use the following tools:
+
+| Tool | Description |
+| --- | --- |
+| jq | command line JSON manipulation utility |
+| unzip | zip and unzip packages to send to AWS |
+| curl | CLI requests utility |
+| aws | cli main utility to interact with AWS resources from CLI |
+
 ## local testing
 
 ```bash
@@ -18,7 +31,7 @@ npm run start
 `npm run update --name=functionName`
 
 
-## helper functions
+## helper functions (wrap aws cli)
 
 - `npm run list-functions`
 - `npm run fetch --name=functionName`
