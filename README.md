@@ -29,6 +29,7 @@ The scripts use the following tools:
 
 ```bash
 cd functionName
+npm i
 npm run start
 ```
 
