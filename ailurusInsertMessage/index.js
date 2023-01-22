@@ -39,7 +39,6 @@ const addMessage = async (data) => {
       .db("ailurus_messages")
       .collection("messages")
       .insertOne(data);
-    console.log(messages);
     return {
       statusCode: 200,
       body: messages,
