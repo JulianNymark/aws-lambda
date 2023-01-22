@@ -1,7 +1,7 @@
 # AWS Lambda made simple!
 
 <p align='center'>
-  <img align='center' src="./README/example.webp">
+  <img align='center' src="./README/aws_lambda.webp">
 </p>
 
 # How to run
