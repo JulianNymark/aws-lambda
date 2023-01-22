@@ -11,7 +11,7 @@ const router = new Router()
 
 router
   .get("/api/info", (ctx) => {
-    ctx.body = { application: "sample-app", version: "1" }
+    ctx.body = { application: "bicycleAPI", version: "1" }
   })
   .get("/api/v1/getback", (ctx) => {
     const requestBody = ctx.request
