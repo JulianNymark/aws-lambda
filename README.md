@@ -1,5 +1,5 @@
 <p align='center'>
-  <img align='center' src="./README/aws_lambda.webp">
+  <img align='center' src="./README/aws_lambda.webp" alt="Yellow Lambda function Cubes falling off scaffolding that reaches into the clouds!">
 </p>
 
 # AWS Lambda made simple!

@@ -10,7 +10,7 @@ const app = new Koa()
 const router = new Router()
 
 router
-  .get("/api/v1/", (ctx) => {
+  .get("/api/v1", (ctx) => {
     ctx.body = {
       application: 'bicycleAPI',
       resources: [
